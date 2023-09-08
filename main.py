@@ -18,6 +18,5 @@ async def verify():
 @kalwar.get("/sumayaacademy/data" ,  response_class=PlainTextResponse)
 async def verif():
     allin = await retall()
-    print(allin)
     json_data = json.dumps(allin)
     return json_data
