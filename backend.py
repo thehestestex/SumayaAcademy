@@ -16,6 +16,8 @@ async def helper(data) -> dict:
     "sr": data["sr"],
         "vurl": data["vurl"],
         "iurl": data["iurl"],
+        "title": data["title"],
+        "desc": data["desc"],
     }
 
 
