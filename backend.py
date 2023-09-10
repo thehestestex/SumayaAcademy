@@ -18,6 +18,7 @@ async def helper(data) -> dict:
         "iurl": data["iurl"],
         "title": data["title"],
         "desc": data["desc"],
+        "date": data["date"],
     }
 
 
