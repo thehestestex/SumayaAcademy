@@ -34,3 +34,41 @@ async def retall():
     except Exception as e:
         print(e)
         return "false"
+
+
+async def getdeviceid(userid):
+    pas = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)}, {'deviceid': 1, '_id': 0})
+    try:
+        return (pas['deviceid'])
+    except Exception as e:
+        print("Invalid key")
+
+
+async def userexists(userid):
+    try:
+        for x in conp.SumayaAcademyapk.sastudentinfo.find():
+            if userid==x['userID']:
+                return "exists"
+        else:
+            return "nouserfound"
+    except Exception as e:
+        pass
+
+async def newdeviceid(userid , deviceid):
+    device = conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": userid}, {'$set': {"deviceid": deviceid}})
+    cpas = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)}, {'deviceid': 1, '_id': 0})
+    if cpas['deviceid']==deviceid:
+        return "true"
+    else:
+        return "failed"
+
+async def getdeviceidall(deviceid):
+    for x in conp.SumayaAcademyapk.sastudentinfo.find():
+        if deviceid==x['deviceid']:
+            return "true"
+# async def userloginpass(password):
+#     passfetch = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)}, {'password': 1, '_id': 0})
+#     try:
+#         return passfetch['password']
+#     except Exception as e:
+#         pass
