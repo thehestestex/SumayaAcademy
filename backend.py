@@ -92,3 +92,11 @@ async def helperr(data) -> dict:
         "mobile": data["mobile"],
         "deviceid": data["deviceid"],
     }
+
+
+async  def insertstu(stuid , sem , name):
+    try:
+     conp.SumayaAcademyapk.sastudentinfo.insert_one({"userID": f"0706{stuid}", "mob": "null" , "name": name ,"semester": sem , "password": "sumaya@123" , "gender": "null" , "deviceid": "null" })
+     return "done"
+    except Exception as e:
+        return "failed"
