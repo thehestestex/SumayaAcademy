@@ -52,10 +52,16 @@ async def loginf(userid , password , deviceid):
     else:
         return "invalid password"
     deviceidreturn = await getdeviceid(userid)
+    dataa = await returndata(userid)
     gi = await getdeviceidall(deviceid)
     if gi=="true":
-        return gi
+        json_data = json.dumps(dataa)
+        return json_data
+
     if deviceidreturn=="None" or deviceidreturn=="null":
-        return await newdeviceid(userid , deviceid)
+        gui = await newdeviceid(userid , deviceid)
+        if gui=="true":
+            json_data = json.dumps(dataa)
+            return json_data
     else:
         return "already logged in"
