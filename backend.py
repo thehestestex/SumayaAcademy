@@ -72,3 +72,23 @@ async def getdeviceidall(deviceid):
 #         return passfetch['password']
 #     except Exception as e:
 #         pass
+
+async def returndata(userid):
+    # return conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)} , {'password': 1, '_id': 0 , 'userID': 1 , 'name': 1 , 'semester': 1 , 'gender': 1 , 'mobile': 1 })
+    hu = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)})
+    dic = await helperr(hu)
+    return dic
+
+
+
+async def helperr(data) -> dict:
+    return {
+
+    "userID": data["userID"],
+    "password": data["password"],
+        "semester": data["semester"],
+        "gender": data["gender"],
+        "name": data["name"],
+        "mobile": data["mobile"],
+        "deviceid": data["deviceid"],
+    }
