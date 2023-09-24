@@ -54,7 +54,7 @@ async def loginf(userid , password , deviceid):
     deviceidreturn = await getdeviceid(userid)
     dataa = await returndata(userid)
     gi = await getdeviceidall(deviceid)
-    if gi=="true":
+    if gi==userid:
         json_data = json.dumps(dataa)
         return json_data
 
