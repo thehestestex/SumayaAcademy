@@ -65,7 +65,7 @@ async def newdeviceid(userid , deviceid):
 async def getdeviceidall(deviceid):
     for x in conp.SumayaAcademyapk.sastudentinfo.find():
         if deviceid==x['deviceid']:
-            return "true"
+            return x['userID']
 # async def userloginpass(password):
 #     passfetch = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": str(userid)}, {'password': 1, '_id': 0})
 #     try:
