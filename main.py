@@ -65,3 +65,7 @@ async def loginf(userid , password , deviceid):
             return json_data
     else:
         return "already logged in"
+
+@kalwar.get("/sumayaacademy/addstudent/", response_class=PlainTextResponse)
+async def addstu(stuid, name, sem):
+    return await insertstu(stuid , sem , name)
