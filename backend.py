@@ -106,7 +106,6 @@ async  def updateinfo(userid , mobileno , gender):
         conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": userid}, {'$set': {'mobile': mobileno, "gender": gender}})
         hu = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": userid})
         dic = await helperr(hu)
-        print(dic)
         return dic
     except Exception as e:
         return "failed"
