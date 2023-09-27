@@ -100,3 +100,22 @@ async  def insertstu(stuid , sem , name):
      return "done"
     except Exception as e:
         return "failed"
+
+async  def updateinfo(userid , mobileno , gender):
+    try:
+        conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": f"0706{userid}"}, {'$set': {'mobile': mobileno, "gender": gender}})
+        hu = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": f"0706{userid}"})
+        dic = await helperr(hu)
+        print(dic)
+        return dic
+    except Exception as e:
+        return "failed"
+
+
+
+async def getuserall(useridd):
+    for x in conp.SumayaAcademyapk.sastudentinfo.find():
+        if useridd==x['userID']:
+            return "true"
+    else:
+        return "false"
