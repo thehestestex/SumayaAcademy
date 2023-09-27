@@ -103,8 +103,8 @@ async  def insertstu(stuid , sem , name):
 
 async  def updateinfo(userid , mobileno , gender):
     try:
-        conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": f"0706{userid}"}, {'$set': {'mobile': mobileno, "gender": gender}})
-        hu = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": f"0706{userid}"})
+        conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": userid}, {'$set': {'mobile': mobileno, "gender": gender}})
+        hu = conp.SumayaAcademyapk.sastudentinfo.find_one({"userID": userid})
         dic = await helperr(hu)
         print(dic)
         return dic
