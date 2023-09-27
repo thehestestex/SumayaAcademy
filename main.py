@@ -33,7 +33,7 @@ async def rootu():
          
              <h1>Developed By Jatin Kalwar</h1>
              <br>
-             <h3>For Business Query Contact us on  thejatinkalwar@gmail.com</h3>
+             <h3>For Business Query Contact me on  thejatinkalwar@gmail.com</h3>
          </body>
      </html>
      """
