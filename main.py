@@ -76,8 +76,11 @@ async def addstu(stuid, name, sem):
 @kalwar.get("/sumayaacademy/update/", response_class=PlainTextResponse)
 async def loginf( userid ,mobileno , gender):
     dics = await updateinfo(userid , mobileno , gender)
-    json_data = json.dumps(dics)
-    return json_data
+    if dics=="false":
+        return "false"
+    else:
+        json_data = json.dumps(dics)
+        return json_data
 
 @kalwar.get("/sumayaacademy/checkstatus/", response_class=PlainTextResponse)
 async def checkstatuss(userid):
