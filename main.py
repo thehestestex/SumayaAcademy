@@ -27,6 +27,7 @@ async def verif():
 
 @kalwar.get("/", response_class=HTMLResponse)
 async def rootu():
+    requests.get("https://autourl-3ptn.onrender.com/start")
     html_content = """
      <html>
          <head>
