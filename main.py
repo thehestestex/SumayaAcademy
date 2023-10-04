@@ -18,6 +18,9 @@ async def verify():
     ke = await returnseckey()
     return ke
 
+def startauto():
+    requests.get("https://autourl-3ptn.onrender.com/start")
+
 
 @kalwar.get("/sumayaacademy/data", response_class=PlainTextResponse)
 async def verif():
