@@ -91,3 +91,14 @@ async def uploadd(assign_id: str = Form(...) , file:UploadFile = File(...) ):
             conent = await file.read();
             f.write(conent)
         return "ok"
+
+@kalwar.get("/sumayaacademy/")
+async def uploaddimage(encode , id):
+    #open file with base64 string data
+    #decode base64 string data
+    decoded_data=base64.b64decode((encoded))
+    img_file = open(f'{id}.jpeg', 'wb')
+    img_file.write(decoded_data)
+    img_file.close()
+
+return {"icon": encode , "id": id}
