@@ -80,17 +80,15 @@ async def loginf( userid ,mobileno , gender):
 async def checkstatuss(userid):
     return await getuserall(userid)
 
+class Book(BaseModel):
+    enocoded: str
+    id: str
 @kalwar.post("/sumayaacademy/")
-async def uploadd(assign_id: str = Form(...) , file:UploadFile = File(...) ):
+async def uploadd(item: Book  ):
+    print(item.enocoded)
 
-        file_ext = file.filename.split(".").pop()
-        file_name = 21045
-        file_path = f"{file_name}.{file_ext}"
-        print(assign_id)
-        with open (file_path , 'wb') as f:
-            conent = await file.read();
-            f.write(conent)
-        return "ok"
+
+    return "ok"
 
 @kalwar.post("/sumayaacademy/upload/" , response_class=PlainTextResponse)
 async def uploaddimage(encoded , id):
