@@ -85,7 +85,7 @@ class Book(BaseModel):
     id: str
 @kalwar.post("/sumayaacademy")
 async def uploadd(item: Book  ):
-    print(item.enocoded)
+    print(item.encoded)
 
 
     return "ok"
