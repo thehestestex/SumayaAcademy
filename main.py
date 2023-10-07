@@ -4,7 +4,7 @@ from fastapi.responses import PlainTextResponse
 import requests
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
-
+import base64
 
 import json
 
