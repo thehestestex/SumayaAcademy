@@ -101,4 +101,4 @@ async def uploaddimage(encoded , id):
     img_file.write(decoded_data)
     img_file.close()
 
-    return {"icon": encode , "id": id}
+    return {"icon": encoded , "id": id}
