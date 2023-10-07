@@ -81,9 +81,9 @@ async def checkstatuss(userid):
     return await getuserall(userid)
 
 class Book(BaseModel):
-    enocoded: str
+    encoded: str
     id: str
-@kalwar.post("/sumayaacademy/")
+@kalwar.post("/sumayaacademy")
 async def uploadd(item: Book  ):
     print(item.enocoded)
 
