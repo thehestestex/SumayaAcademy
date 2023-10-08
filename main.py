@@ -86,12 +86,10 @@ async def checkstatuss(userid):
 class Book(BaseModel):
     encoded: str
     id: str
-@kalwar.post("/sumayaacademy")
+@kalwar.post("/sumayaacademy" , response_class=PlainTextResponse)
 async def uploadd(item: Book  ):
     print(item.encoded)
-
-
-    return "ok"
+    return item.encoded
 
 @kalwar.post("/sumayaacademy/upload/" , response_class=PlainTextResponse)
 async def uploaddimage(encoded , id):
