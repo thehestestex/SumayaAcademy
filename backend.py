@@ -91,6 +91,7 @@ async def helperr(data) -> dict:
         "name": data["name"],
         "mobile": data["mobile"],
         "deviceid": data["deviceid"],
+        "image": data["image"],
     }
 
 
@@ -118,3 +119,11 @@ async def getuserall(useridd):
             return "true"
     else:
         return "false"
+
+
+async def setimageurl(bytecodee , id):
+    try:
+        conp.SumayaAcademyapk.sastudentinfo.update_one({"userID": id}, {'$set': {'image': bytecodee}})
+        return "ok"
+    except Exception as e:
+        return "failed"
