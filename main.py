@@ -21,9 +21,12 @@ async def verif():
     allin = await retall()
     json_data = json.dumps(allin)
     return json_data
-
+def starturl():
+    requests.get("https://autourl-3ptn.onrender.com/start")
+    
 @kalwar.get("/", response_class=HTMLResponse)
-async def rootu():
+async def rootu(background_tasks: BackgroundTasks):
+    background_tasks.add_task(starturl)
     html_content = """
      <html>
          <head>
