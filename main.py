@@ -10,6 +10,7 @@ import json
 
 kalwar = FastAPI()
 
+
 @kalwar.get("/sumayaacademy/keys")
 async def verify():
     ke = await returnseckey()
@@ -21,9 +22,12 @@ async def verif():
     allin = await retall()
     json_data = json.dumps(allin)
     return json_data
+
+
 def starturl():
     requests.get("https://autourl-3ptn.onrender.com/start")
-    
+
+
 @kalwar.get("/", response_class=HTMLResponse)
 async def rootu(background_tasks: BackgroundTasks):
     background_tasks.add_task(starturl)
@@ -41,6 +45,7 @@ async def rootu(background_tasks: BackgroundTasks):
      </html>
      """
     return HTMLResponse(content=html_content, status_code=200)
+
 
 @kalwar.get("/sumayaacademy/login/", response_class=PlainTextResponse)
 async def loginf(userid, password, deviceid):
@@ -69,30 +74,37 @@ async def loginf(userid, password, deviceid):
     else:
         return "already logged in"
 
+
 @kalwar.get("/sumayaacademy/addstudent/", response_class=PlainTextResponse)
 async def addstu(stuid, name, sem):
     return await insertstu(stuid, sem, name)
 
+
 @kalwar.get("/sumayaacademy/update/", response_class=PlainTextResponse)
-async def loginf( userid ,mobileno , gender):
-    dics = await updateinfo(userid , mobileno , gender)
+async def loginf(userid, mobileno, gender):
+    dics = await updateinfo(userid, mobileno, gender)
     json_data = json.dumps(dics)
     return json_data
+
 
 @kalwar.get("/sumayaacademy/checkstatus/", response_class=PlainTextResponse)
 async def checkstatuss(userid):
     return await getuserall(userid)
 
+
 class Book(BaseModel):
     encoded: str
     id: str
-@kalwar.post("/sumayaacademy" , response_class=PlainTextResponse)
-async def uploadd(item: Book  ):
-    print(item.encoded)
-    return item.encoded
 
-@kalwar.post("/sumayaacademy/upload/" , response_class=PlainTextResponse)
-async def uploaddimage(encoded , id):
+
+@kalwar.post("/sumayaacademy", response_class=PlainTextResponse)
+async def uploadd(item: Book):
+    response = await setimageurl(item.encoded , item.id)
+    return response
+
+
+@kalwar.post("/sumayaacademy/upload/", response_class=PlainTextResponse)
+async def uploaddimage(encoded, id):
     # #open file with base64 string data
     # #decode base64 string data
     # decoded_data=base64.b64decode((encoded))
