@@ -25,7 +25,7 @@ async def verif():
 
 
 def starturl():
-    requests.get("https://autourl-3ptn.onrender.com/start")
+    requests.get("https://autourlsumaya.onrender.com/start")
 
 
 @kalwar.get("/", response_class=HTMLResponse)
